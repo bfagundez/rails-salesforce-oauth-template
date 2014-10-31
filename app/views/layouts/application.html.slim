@@ -1,0 +1,23 @@
+doctype html
+head
+  title Salesforce OAuth2 Connection test
+  = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => true
+  = csrf_meta_tags
+body
+  div#user-widget
+    p Salesforce connection OAuth2 test!
+    - if current_user
+        p Welcome
+        strong
+          =current_user.name
+    - else
+      = link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in"
+
+
+    / This is your first account
+    br
+    - if @account
+      =@account.Name
+
+  - yield
